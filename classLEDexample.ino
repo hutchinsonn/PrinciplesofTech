@@ -1,6 +1,6 @@
 #include <FastLED.h>
 #define NUM_LEDS 135
-#define DATA_PIN 6
+#define DATA_PIN 11
 
 CRGB leds[NUM_LEDS];
 
@@ -10,7 +10,10 @@ void setup() {
 void loop() {
   for(int i=0;i<NUM_LEDS;i++){
     leds[i] = CRGB::Green;
+    leds[(NUM_LEDS-i)] = CRGB::Red;
     FastLED.show();
-    delay(30)
+    delay(30);
+    leds[i] = CRGB::Black;
+    leds[(NUM_LEDS-i)] = CRGB::Black;
   }
 }
